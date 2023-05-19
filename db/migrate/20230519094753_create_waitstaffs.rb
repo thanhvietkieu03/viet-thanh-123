@@ -8,5 +8,5 @@ class CreateWaitstaffs < ActiveRecord::Migration[7.0]
     end
   end
 end
-remove_column :tables, :waitstaff
+
 
