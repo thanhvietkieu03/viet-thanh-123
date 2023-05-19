@@ -1,0 +1,2 @@
+class Waitstaff < ApplicationRecord
+end

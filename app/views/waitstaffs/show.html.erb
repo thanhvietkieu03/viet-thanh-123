@@ -1,0 +1,25 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Waitstaff</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to waitstaffs_path, class: button_class(theme: "transparent") do %>
+      All Waitstaffs
+      <% end %>
+      <%= link_to edit_waitstaff_path(@waitstaff), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Waiter:</p>
+        <p><%= @waitstaff.waiter_id %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @waitstaff.name %></p>
+      </li>
+  </ul>
+</div>
