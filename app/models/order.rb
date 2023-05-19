@@ -1,2 +1,6 @@
+# app/models/order.rb
 class Order < ApplicationRecord
-end
+    belongs_to :table
+    has_many :order_items
+  end
+  

@@ -1,2 +1,4 @@
 class Table < ApplicationRecord
-end
+    has_one :reservation
+    has_many :orders
+  end

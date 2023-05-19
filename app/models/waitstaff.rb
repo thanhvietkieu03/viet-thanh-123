@@ -1,2 +1,3 @@
 class Waitstaff < ApplicationRecord
-end
+    has_many :tables
+  end
