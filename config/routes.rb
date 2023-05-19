@@ -3,7 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :inventories
   resources :staffs
-  resources :menus
+  resources :menu_items
   resources :orders
   resources :waitstaffs
   resources :tables

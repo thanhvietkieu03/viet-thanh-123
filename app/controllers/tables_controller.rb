@@ -68,3 +68,21 @@ class TablesController < ApplicationController
       params.require(:table).permit(:table_id, :status, :capacity)
     end
 end
+class TablesController < ApplicationController
+  def create
+    @table = Table.new(table_params)
+    if @table.save
+      # Xử lý khi lưu đối tượng thành công
+    else
+      # Xử lý khi lưu đối tượng thất bại
+      flash[:error] = "Vui lòng nhập đủ thông tin"
+      render :new # hoặc chuyển hướng đến trang khác
+    end
+  end
+
+  private
+
+  def table_params
+    params.require(:table).permit(:status)
+  end
+end

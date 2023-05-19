@@ -68,3 +68,21 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:order_id, :status, :timestamp, :table_id)
     end
 end
+class OrdersController < ApplicationController
+  def create
+    @order = Order.new(order_params)
+    if @order.save
+      # Xử lý khi lưu đối tượng thành công
+    else
+      # Xử lý khi lưu đối tượng thất bại
+      flash[:error] = "Vui lòng nhập đủ thông tin"
+      render :new # hoặc chuyển hướng đến trang khác
+    end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:table_id, :status)
+  end
+end
