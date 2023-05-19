@@ -68,3 +68,21 @@ class WaitstaffsController < ApplicationController
       params.require(:waitstaff).permit(:waiter_id, :name)
     end
 end
+class WaitstaffsController < ApplicationController
+  def create
+    @waitstaff = Waitstaff.new(waitstaff_params)
+    if @waitstaff.save
+      # Xử lý khi lưu đối tượng thành công
+    else
+      # Xử lý khi lưu đối tượng thất bại
+      flash[:error] = "Vui lòng nhập đủ thông tin"
+      render :new # hoặc chuyển hướng đến trang khác
+    end
+  end
+
+  private
+
+  def waitstaff_params
+    params.require(:waitstaff).permit(:name)
+  end
+end

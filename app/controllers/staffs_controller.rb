@@ -68,3 +68,21 @@ class StaffsController < ApplicationController
       params.require(:staff).permit(:staff_id, :name, :role)
     end
 end
+class StaffsController < ApplicationController
+  def create
+    @staff = Staff.new(staff_params)
+    if @staff.save
+      # Xử lý khi lưu đối tượng thành công
+    else
+      # Xử lý khi lưu đối tượng thất bại
+      flash[:error] = "Vui lòng nhập đủ thông tin"
+      render :new # hoặc chuyển hướng đến trang khác
+    end
+  end
+
+  private
+
+  def staff_params
+    params.require(:staff).permit(:name, :role)
+  end
+end

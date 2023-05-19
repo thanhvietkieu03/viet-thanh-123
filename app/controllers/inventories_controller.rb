@@ -68,3 +68,21 @@ class InventoriesController < ApplicationController
       params.require(:inventory).permit(:ingredient_id, :name, :quantity)
     end
 end
+class InventoriesController < ApplicationController
+  def create
+    @inventory = Inventory.new(inventory_params)
+    if @inventory.save
+      # Xử lý khi lưu đối tượng thành công
+    else
+      # Xử lý khi lưu đối tượng thất bại
+      flash[:error] = "Vui lòng nhập đủ thông tin"
+      render :new # hoặc chuyển hướng đến trang khác
+    end
+  end
+
+  private
+
+  def inventory_params
+    params.require(:inventory).permit(:name)
+  end
+end

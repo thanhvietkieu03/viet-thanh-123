@@ -7,3 +7,6 @@ end
 class MenuItem < ApplicationRecord
   has_and_belongs_to_many :inventories
 end
+class Inventory < ApplicationRecord
+  validates :name, presence: true
+end
